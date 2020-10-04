@@ -28,10 +28,9 @@ public class KafkaTopicConfig {
     @Bean
     public NewTopic topicos() {
         System.out.println("CHAMOU - "+bootstrapAddress);
-       // return TopicBuilder.name("votacao_paulta_finalizada")
-         //       .replicas(1)
-           //     .partitions(1)
-             //   .build();
-        return new NewTopic("votacao_paulta_finalizada", 1, (short) 1);
+        return TopicBuilder.name("votacao_paulta_finalizada")
+              .replicas(1)
+            .partitions(1)
+          .build();
     }
 }
