@@ -2,7 +2,7 @@ package br.com.sicredi.entrevista.assembleia.api.v1;
 
 import br.com.sicredi.entrevista.assembleia.api.v1.request.SessaoRequestTest;
 import br.com.sicredi.entrevista.assembleia.enun.SituacaoMensagemFimSessao;
-import br.com.sicredi.entrevista.assembleia.servico.dto.SessaoDTO;
+import br.com.sicredi.entrevista.assembleia.servico.dto.SessaoDTOTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -43,7 +43,7 @@ public class TestSessaoController {
         LocalDateTime dataHoraFim = dataHoraInicio.plusMinutes(duracaoMinutos);
 
         SessaoRequestTest sessaoRequest = SessaoRequestTest.builder().pautaId(1L).duracaoMinutos(duracaoMinutos).dataHoraInicio(dataHoraInicio).build();
-        SessaoDTO sessaoDTO = SessaoDTO.builder().id(1L)
+        SessaoDTOTest sessaoDTO = SessaoDTOTest.builder().id(1L)
                 .inicioVotacao(dataHoraInicio)
                 .fimVotacao(dataHoraFim)
                 .pautaId(1L)

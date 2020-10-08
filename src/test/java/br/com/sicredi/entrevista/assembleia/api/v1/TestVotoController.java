@@ -2,7 +2,7 @@ package br.com.sicredi.entrevista.assembleia.api.v1;
 
 import br.com.sicredi.entrevista.assembleia.api.v1.request.VotoRequestTest;
 import br.com.sicredi.entrevista.assembleia.enun.OpcaoVoto;
-import br.com.sicredi.entrevista.assembleia.servico.dto.VotoDTO;
+import br.com.sicredi.entrevista.assembleia.servico.dto.VotoDTOTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -39,7 +39,7 @@ public class TestVotoController {
     public void criarComSucesso() throws Exception {
         String url = "/v1/voto/votar";
         VotoRequestTest votoRequest = VotoRequestTest.builder().cpf("14412497100").opcao(OpcaoVoto.SIM).sessaoId(1L).build();
-        VotoDTO votoDTO = VotoDTO.builder()
+        VotoDTOTest votoDTO = VotoDTOTest.builder()
                 .cpf("14412497100")
                 .opcao(OpcaoVoto.SIM)
                 .sessaoId(1L)
@@ -64,7 +64,7 @@ public class TestVotoController {
     public void criarSegundoVotoMesmoAssociado() throws Exception {
         String url = "/v1/voto/votar";
         VotoRequestTest votoRequest = VotoRequestTest.builder().cpf("14412497100").opcao(OpcaoVoto.NAO).sessaoId(1L).build();
-        VotoDTO votoDTO = VotoDTO.builder()
+        VotoDTOTest votoDTO = VotoDTOTest.builder()
                 .cpf("14412497100")
                 .opcao(OpcaoVoto.NAO)
                 .sessaoId(1L)
