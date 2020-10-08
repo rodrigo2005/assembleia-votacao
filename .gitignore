@@ -1,6 +1,7 @@
 HELP.md
 api/
 target/
+lsp/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -19,6 +20,9 @@ target/
 *.iws
 *.iml
 *.ipr
+*.swo
+*.swn
+*.swp
 
 ### NetBeans ###
 /nbproject/private/
