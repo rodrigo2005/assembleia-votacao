@@ -9,4 +9,5 @@ public class PautaDTO {
 
     private Long id;
 
+    private String nome;
 }
