@@ -1,9 +1,9 @@
-package br.com.sicredi.entrevista.assembleia.configuracao.converter;
+package br.com.sicredi.entrevista.assembleia.servico.conversor;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class AbstractMapper<DTO, Entity> implements EntityMapper<DTO, Entity> {
+public abstract class AbstractConverter<DTO, Entity> implements EntityConverter<DTO, Entity> {
 
     public abstract DTO toDto(Entity entity);
 

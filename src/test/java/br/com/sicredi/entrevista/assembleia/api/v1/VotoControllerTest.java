@@ -1,9 +1,9 @@
 package br.com.sicredi.entrevista.assembleia.api.v1;
 
-import br.com.sicredi.entrevista.assembleia.api.v1.request.SessaoRequest;
-import br.com.sicredi.entrevista.assembleia.enun.SituacaoMensagemFimSessao;
-import br.com.sicredi.entrevista.assembleia.excecao.NegocioException;
-import br.com.sicredi.entrevista.assembleia.servico.dto.SessaoDTO;
+import br.com.sicredi.entrevista.assembleia.api.v1.request.VotoRequest;
+import br.com.sicredi.entrevista.assembleia.enun.OpcaoVoto;
+import static org.hamcrest.Matchers.*;
+import br.com.sicredi.entrevista.assembleia.servico.dto.VotoDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -18,13 +18,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import java.time.LocalDateTime;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SessaoControllerTest {
+public class VotoControllerTest {
 
     @Autowired
     public WebApplicationContext context;
@@ -38,58 +37,51 @@ public class SessaoControllerTest {
 
     @Test
     public void criarComSucesso() throws Exception {
-        String url = "/v1/sessao/iniciar-sessao";
-        int duracaoMinutos = 5;
-        LocalDateTime dataHoraInicio = LocalDateTime.now();
-        LocalDateTime dataHoraFim = dataHoraInicio.plusMinutes(duracaoMinutos);
-
-        SessaoRequest sessaoRequest = SessaoRequest.builder().pautaId(1L).duracaoMinutos(duracaoMinutos).dataHoraInicio(dataHoraInicio).build();
-        SessaoDTO sessaoDTO = SessaoDTO.builder().id(1L)
-                .inicioVotacao(dataHoraInicio)
-                .fimVotacao(dataHoraFim)
-                .pautaId(1L)
-                .situacaoMensagemFimSessao(SituacaoMensagemFimSessao.PENDENTE)
-                .minutos(duracaoMinutos).build();
+        String url = "/v1/voto/votar";
+        VotoRequest votoRequest = VotoRequest.builder().cpf("14412497100").opcao(OpcaoVoto.SIM).sessaoId(1L).build();
+        VotoDTO votoDTO = VotoDTO.builder()
+                .cpf("14412497100")
+                .opcao(OpcaoVoto.SIM)
+                .sessaoId(1L)
+                .id(1L)
+                .build();
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-        String sessaoRequestJson = mapper.writeValueAsString(sessaoRequest);
-        String sessaoDTOJson =  mapper.writeValueAsString(sessaoDTO);
+        String votoRequestJson = mapper.writeValueAsString(votoRequest);
+        String votoDTOJson =  mapper.writeValueAsString(votoDTO);
 
         this.mockMvc.perform(post(url)
-                .content(sessaoRequestJson)
+                .content(votoRequestJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(content().json(sessaoDTOJson))
+                .andExpect(content().json(votoDTOJson))
                 .andDo(MockMvcResultHandlers.print());
     }
 
-    @Test
-    public void criarSessaoParaPautaQueJaPossui() throws Exception {
-        String url = "/v1/sessao/iniciar-sessao";
-        int duracaoMinutos = 5;
-        LocalDateTime dataHoraInicio = LocalDateTime.now();
-        LocalDateTime dataHoraFim = dataHoraInicio.plusMinutes(duracaoMinutos);
-
-        SessaoRequest sessaoRequest = SessaoRequest.builder().pautaId(1L).duracaoMinutos(duracaoMinutos).dataHoraInicio(dataHoraInicio).build();
-        SessaoDTO sessaoDTO = SessaoDTO.builder().id(2L)
-                .inicioVotacao(dataHoraInicio)
-                .fimVotacao(dataHoraFim)
+    @Test()
+    public void criarSegundoVotoMesmoAssociado() throws Exception {
+        String url = "/v1/voto/votar";
+        VotoRequest votoRequest = VotoRequest.builder().cpf("14412497100").opcao(OpcaoVoto.NAO).sessaoId(1L).build();
+        VotoDTO votoDTO = VotoDTO.builder()
+                .cpf("14412497100")
+                .opcao(OpcaoVoto.NAO)
+                .sessaoId(1L)
+                .id(2L)
                 .pautaId(1L)
-                .situacaoMensagemFimSessao(SituacaoMensagemFimSessao.PENDENTE)
-                .minutos(duracaoMinutos).build();
+                .build();
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-        String sessaoRequestJson = mapper.writeValueAsString(sessaoRequest);
-        String sessaoDTOJson =  mapper.writeValueAsString(sessaoDTO);
+        String votoRequestJson = mapper.writeValueAsString(votoRequest);
+        String votoDTOJson =  mapper.writeValueAsString(votoDTO);
 
         this.mockMvc.perform(post(url)
-                .content(sessaoRequestJson)
+                .content(votoRequestJson)
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.error").value("Não foi possível incluir uma sessão, pauta já possui uma sessão vinculada."))
+                .andExpect(status().isBadRequest())
                 .andDo(MockMvcResultHandlers.print());
     }
 

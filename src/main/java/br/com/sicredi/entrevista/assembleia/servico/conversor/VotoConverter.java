@@ -1,16 +1,14 @@
-package br.com.sicredi.entrevista.assembleia.conversor;
+package br.com.sicredi.entrevista.assembleia.servico.conversor;
 
-import br.com.sicredi.entrevista.assembleia.configuracao.converter.AbstractMapper;
+import br.com.sicredi.entrevista.assembleia.dominio.Sessao;
 import br.com.sicredi.entrevista.assembleia.dominio.Voto;
-import br.com.sicredi.entrevista.assembleia.dto.VotoDTO;
+import br.com.sicredi.entrevista.assembleia.servico.dto.VotoDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-public class VotoConverter  extends AbstractMapper<VotoDTO, Voto> {
-
-    private SessaoConverter sessaoConverter;
+public class VotoConverter  extends AbstractConverter<VotoDTO, Voto> {
 
     @Override
     public VotoDTO toDto(Voto voto) {
@@ -18,7 +16,18 @@ public class VotoConverter  extends AbstractMapper<VotoDTO, Voto> {
                 .id(voto.getId())
                 .cpf(voto.getCpf())
                 .opcao(voto.getOpcao())
-                .sessao(sessaoConverter.toDto(voto.getSessao()))
+                .sessaoId(voto.getSessao().getId())
+                .pautaId(voto.getSessao().getPauta().getId())
+                .build();
+    }
+
+    public VotoDTO toDto(Voto voto, Long pautaId) {
+        return VotoDTO.builder()
+                .id(voto.getId())
+                .cpf(voto.getCpf())
+                .opcao(voto.getOpcao())
+                .sessaoId(voto.getSessao().getId())
+                .pautaId(pautaId)
                 .build();
     }
 
@@ -28,7 +37,7 @@ public class VotoConverter  extends AbstractMapper<VotoDTO, Voto> {
                 .id(votoDTO.getId())
                 .cpf(votoDTO.getCpf())
                 .opcao(votoDTO.getOpcao())
-                .sessao(sessaoConverter.toEntity(votoDTO.getSessao()))
+                .sessao(Sessao.builder().id(votoDTO.getSessaoId()).build())
                 .build();
     }
 }

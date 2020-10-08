@@ -1,10 +1,10 @@
 package br.com.sicredi.entrevista.assembleia;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AssembleiaApplicationTests {
+public class AssembleiaApplicationTests {
 
 	@Test
 	void contextLoads() {

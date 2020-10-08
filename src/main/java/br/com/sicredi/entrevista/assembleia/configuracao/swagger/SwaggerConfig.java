@@ -1,4 +1,4 @@
-package br.com.sicredi.entrevista.assembleia.configuracao;
+package br.com.sicredi.entrevista.assembleia.configuracao.swagger;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +22,6 @@ public class SwaggerConfig {
 
     @Bean
     public Docket productApi() {
-        System.out.println("############ - "+swaggerpath);
         Set<String> protolocos = new HashSet<>();
         protolocos.add("http");
         protolocos.add("https");

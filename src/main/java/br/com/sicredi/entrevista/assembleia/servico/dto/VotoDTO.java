@@ -1,6 +1,7 @@
-package br.com.sicredi.entrevista.assembleia.dto;
+package br.com.sicredi.entrevista.assembleia.servico.dto;
 
-import br.com.sicredi.entrevista.assembleia.enun.OpcaoSimNaoEnum;
+import br.com.sicredi.entrevista.assembleia.enun.OpcaoVoto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 
@@ -12,8 +13,10 @@ public class VotoDTO {
 
     private String cpf;
 
-    private SessaoDTO sessao;
+    private Long sessaoId;
 
-    private OpcaoSimNaoEnum opcao;
+    private OpcaoVoto opcao;
 
+    @JsonIgnore
+    private Long pautaId;
 }

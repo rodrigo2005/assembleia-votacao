@@ -1,12 +1,11 @@
-package br.com.sicredi.entrevista.assembleia.conversor;
+package br.com.sicredi.entrevista.assembleia.servico.conversor;
 
-import br.com.sicredi.entrevista.assembleia.configuracao.converter.AbstractMapper;
 import br.com.sicredi.entrevista.assembleia.dominio.Pauta;
-import br.com.sicredi.entrevista.assembleia.dto.PautaDTO;
+import br.com.sicredi.entrevista.assembleia.servico.dto.PautaDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PautaConverter extends AbstractMapper<PautaDTO, Pauta> {
+public class PautaConverter extends AbstractConverter<PautaDTO, Pauta> {
 
 
     @Override

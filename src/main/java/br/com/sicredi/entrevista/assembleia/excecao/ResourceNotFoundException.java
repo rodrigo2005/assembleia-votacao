@@ -1,13 +1,14 @@
 package br.com.sicredi.entrevista.assembleia.excecao;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-
-public class AssociadoNaoValidoException extends AbstractThrowableProblem {
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class ResourceNotFoundException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
-    public AssociadoNaoValidoException() {
-        super(ErrorConstants.EMAIL_NOT_FOUND_TYPE, "Email address not registered", Status);
+    public ResourceNotFoundException(String mensagem) {
+        super(mensagem);
     }
 }

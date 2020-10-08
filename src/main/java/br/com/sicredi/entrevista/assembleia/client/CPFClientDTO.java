@@ -1,9 +1,9 @@
-package br.com.sicredi.entrevista.assembleia.client.dto;
+package br.com.sicredi.entrevista.assembleia.client;
 
 import lombok.Data;
 
 @Data
-public class ValidarCPF {
+public class CPFClientDTO {
 
     private static final String ABLE_TO_VOTE = "ABLE_TO_VOTE";
 

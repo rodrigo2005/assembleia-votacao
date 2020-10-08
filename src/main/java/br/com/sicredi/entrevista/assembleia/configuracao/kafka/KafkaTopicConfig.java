@@ -1,4 +1,4 @@
-package br.com.sicredi.entrevista.assembleia.configuracao;
+package br.com.sicredi.entrevista.assembleia.configuracao.kafka;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -17,6 +17,9 @@ public class KafkaTopicConfig {
     @Value(value = "${kafka.bootstrapAddress}")
     private String bootstrapAddress;
 
+    @Value(value = "${evento.topic}")
+    private String topico;
+
     @Bean
     public KafkaAdmin kafkaAdmin() {
         Map<String, Object> configs = new HashMap<>();
@@ -27,10 +30,11 @@ public class KafkaTopicConfig {
 
     @Bean
     public NewTopic topicos() {
-        System.out.println("CHAMOU - "+bootstrapAddress);
-        return TopicBuilder.name("votacao_paulta_finalizada")
+        return TopicBuilder.name(topico)
               .replicas(1)
             .partitions(1)
           .build();
     }
+
+
 }

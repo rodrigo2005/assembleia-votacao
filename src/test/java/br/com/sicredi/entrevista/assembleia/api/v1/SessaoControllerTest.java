@@ -1,11 +1,11 @@
 package br.com.sicredi.entrevista.assembleia.api.v1;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.hamcrest.Matchers.*;
+import br.com.sicredi.entrevista.assembleia.api.v1.request.SessaoRequest;
+import br.com.sicredi.entrevista.assembleia.enun.SituacaoMensagemFimSessao;
+import br.com.sicredi.entrevista.assembleia.servico.dto.SessaoDTO;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,10 +17,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import java.time.LocalDateTime;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PautaControllerTest {
+public class SessaoControllerTest {
 
     @Autowired
     public WebApplicationContext context;
@@ -34,43 +37,83 @@ public class PautaControllerTest {
 
     @Test
     public void criarComSucesso() throws Exception {
-        String url = "/v1/pauta";
+        String url = "/v1/sessao/iniciar-sessao";
+        int duracaoMinutos = 5;
+        LocalDateTime dataHoraInicio = LocalDateTime.now();
+        LocalDateTime dataHoraFim = dataHoraInicio.plusMinutes(duracaoMinutos);
+
+        SessaoRequest sessaoRequest = SessaoRequest.builder().pautaId(1L).duracaoMinutos(duracaoMinutos).dataHoraInicio(dataHoraInicio).build();
+        SessaoDTO sessaoDTO = SessaoDTO.builder().id(1L)
+                .inicioVotacao(dataHoraInicio)
+                .fimVotacao(dataHoraFim)
+                .pautaId(1L)
+                .situacaoMensagemFimSessao(SituacaoMensagemFimSessao.PENDENTE)
+                .minutos(duracaoMinutos).build();
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        String sessaoRequestJson = mapper.writeValueAsString(sessaoRequest);
+        String sessaoDTOJson =  mapper.writeValueAsString(sessaoDTO);
+
         this.mockMvc.perform(post(url)
-                .content("{\"descricao\": \"px\"}")
+                .content(sessaoRequestJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated())
-                .andExpect(content().json("{\"id\": 1,\"nome\": \"px\"}"))
+                .andExpect(content().json(sessaoDTOJson))
                 .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
-    public void criarComValidacaoObrigatoriaDeCampo() throws Exception {
-        String url = "/v1/pauta";
+    public void criarSessaoParaPautaQueJaPossui() throws Exception {
+        String url = "/v1/sessao/iniciar-sessao";
+        int duracaoMinutos = 5;
+        LocalDateTime dataHoraInicio = LocalDateTime.now();
+        LocalDateTime dataHoraFim = dataHoraInicio.plusMinutes(duracaoMinutos);
+
+        SessaoRequest sessaoRequest = SessaoRequest.builder().pautaId(1L).duracaoMinutos(duracaoMinutos).dataHoraInicio(dataHoraInicio).build();
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        String sessaoRequestJson = mapper.writeValueAsString(sessaoRequest);
+
         this.mockMvc.perform(post(url)
-                .content("{}")
+                .content(sessaoRequestJson)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
                 .andDo(MockMvcResultHandlers.print());
     }
 
-    @Test
-    public void buscarTodos() throws Exception {
-        String url = "/v1/pauta";
-        this.mockMvc.perform(get(url)
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].nome", is("px")));
-    }
-
-    @Test
-    public void buscarPorId() throws Exception {
-        String url = "/v1/pauta/1";
-        this.mockMvc.perform(get(url)
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("id",equalTo(1)))
-                .andExpect(jsonPath("nome",equalTo("px")));
-
-    }
+//
+//    @Test
+//    public void criarComValidacaoObrigatoriaDeCampo() throws Exception {
+//        String url = "/v1/pauta";
+//        this.mockMvc.perform(post(url)
+//                .content("{}")
+//                .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isBadRequest())
+//                .andDo(MockMvcResultHandlers.print());
+//    }
+//
+//    @Test
+//    public void buscarTodos() throws Exception {
+//        String url = "/v1/pauta";
+//        this.mockMvc.perform(get(url)
+//                .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$", hasSize(1)))
+//                .andExpect(jsonPath("$[0].nome", is("px")));
+//    }
+//
+//    @Test
+//    public void buscarPorId() throws Exception {
+//        String url = "/v1/pauta/1";
+//        this.mockMvc.perform(get(url)
+//                .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("id",equalTo(1)))
+//                .andExpect(jsonPath("nome",equalTo("px")));
+//
+//    }
 }

@@ -1,16 +1,14 @@
-package br.com.sicredi.entrevista.assembleia.conversor;
+package br.com.sicredi.entrevista.assembleia.servico.conversor;
 
-import br.com.sicredi.entrevista.assembleia.configuracao.converter.AbstractMapper;
+import br.com.sicredi.entrevista.assembleia.dominio.Pauta;
 import br.com.sicredi.entrevista.assembleia.dominio.Sessao;
-import br.com.sicredi.entrevista.assembleia.dto.SessaoDTO;
+import br.com.sicredi.entrevista.assembleia.servico.dto.SessaoDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-public class SessaoConverter extends AbstractMapper<SessaoDTO, Sessao> {
-
-    private PautaConverter pautaConverter;
+public class SessaoConverter extends AbstractConverter<SessaoDTO, Sessao> {
 
     @Override
     public SessaoDTO toDto(Sessao sessao) {
@@ -18,8 +16,8 @@ public class SessaoConverter extends AbstractMapper<SessaoDTO, Sessao> {
                 .id(sessao.getId())
                 .inicioVotacao(sessao.getInicioVotacao())
                 .fimVotacao(sessao.getFimVotacao())
-                .msgFechamentoPublicada(sessao.getMsgFechamentoPublicada())
-                .pauta(pautaConverter.toDto(sessao.getPauta()))
+                .situacaoMensagemFimSessao(sessao.getSituacaoMensagemFimSessao())
+                .pautaId(sessao.getPauta().getId())
                 .build();
     }
 
@@ -29,8 +27,8 @@ public class SessaoConverter extends AbstractMapper<SessaoDTO, Sessao> {
                 .id(sessaoDTO.getId())
                 .inicioVotacao(sessaoDTO.getInicioVotacao())
                 .fimVotacao(sessaoDTO.getFimVotacao())
-                .msgFechamentoPublicada(sessaoDTO.getMsgFechamentoPublicada())
-                .pauta(pautaConverter.toEntity(sessaoDTO.getPauta()))
+                .situacaoMensagemFimSessao(sessaoDTO.getSituacaoMensagemFimSessao())
+                .pauta(Pauta.builder().id(sessaoDTO.getPautaId()).build())
                 .build();
     }
 }
