@@ -20,13 +20,14 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
   db:
     image: mysql
     container_name: mysql-container
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
-      MYSQL_DATABASE: votacao
+      MYSQL_DATABASE: assembleia
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./api/bd/data:/var/lib/mysql
