@@ -1,6 +1,6 @@
 package br.com.sicredi.entrevista.assembleia.servico.dto;
 
-import br.com.sicredi.entrevista.assembleia.enun.SituacaoMensagemFimSessao;
+import br.com.sicredi.entrevista.assembleia.enun.SituacaoMensagemFimSessaoTest;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +20,7 @@ public class SessaoDTOTest {
 
     private LocalDateTime fimVotacao;
 
-    private SituacaoMensagemFimSessao situacaoMensagemFimSessao;
+    private SituacaoMensagemFimSessaoTest situacaoMensagemFimSessao;
 
     private Long pautaId;
 

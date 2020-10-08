@@ -1,6 +1,6 @@
 package br.com.sicredi.entrevista.assembleia.api.v1.request;
 
-import br.com.sicredi.entrevista.assembleia.enun.OpcaoVoto;
+import br.com.sicredi.entrevista.assembleia.enun.OpcaoVotoTest;
 import lombok.Builder;
 import lombok.Data;
 import org.hibernate.validator.constraints.br.CPF;
@@ -18,5 +18,5 @@ public class VotoRequestTest {
     private Long sessaoId;
 
     @NotNull(message = "Deve ser informado uma opçao de voto, as opções são SIM ou NAO.")
-    private OpcaoVoto opcao;
+    private OpcaoVotoTest opcao;
 }

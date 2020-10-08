@@ -1,7 +1,7 @@
 package br.com.sicredi.entrevista.assembleia.api.v1;
 
 import br.com.sicredi.entrevista.assembleia.api.v1.request.SessaoRequestTest;
-import br.com.sicredi.entrevista.assembleia.enun.SituacaoMensagemFimSessao;
+import br.com.sicredi.entrevista.assembleia.enun.SituacaoMensagemFimSessaoTest;
 import br.com.sicredi.entrevista.assembleia.servico.dto.SessaoDTOTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -47,7 +47,7 @@ public class TestSessaoController {
                 .inicioVotacao(dataHoraInicio)
                 .fimVotacao(dataHoraFim)
                 .pautaId(1L)
-                .situacaoMensagemFimSessao(SituacaoMensagemFimSessao.PENDENTE)
+                .situacaoMensagemFimSessao(SituacaoMensagemFimSessaoTest.PENDENTE)
                 .minutos(duracaoMinutos).build();
 
         ObjectMapper mapper = new ObjectMapper();
