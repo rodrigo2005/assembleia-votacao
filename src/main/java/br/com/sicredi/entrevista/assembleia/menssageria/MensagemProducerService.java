@@ -1,6 +1,6 @@
-package br.com.sicredi.entrevista.assembleia.menssageria;
+package br.com.sicredi.entrevista.assembleia.teste.menssageria;
 
-import br.com.sicredi.entrevista.assembleia.configuracao.kafka.Mensagem;
+import br.com.sicredi.entrevista.assembleia.teste.configuracao.kafka.Mensagem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;

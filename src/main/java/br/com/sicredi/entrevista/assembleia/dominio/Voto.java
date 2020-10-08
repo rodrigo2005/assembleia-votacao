@@ -1,6 +1,6 @@
-package br.com.sicredi.entrevista.assembleia.dominio;
+package br.com.sicredi.entrevista.assembleia.teste.dominio;
 
-import br.com.sicredi.entrevista.assembleia.enun.OpcaoVoto;
+import br.com.sicredi.entrevista.assembleia.teste.enun.OpcaoVoto;
 import lombok.Builder;
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package br.com.sicredi.entrevista.assembleia.dominio;
+package br.com.sicredi.entrevista.assembleia.teste.dominio;
 
-import br.com.sicredi.entrevista.assembleia.enun.SituacaoMensagemFimSessao;
+import br.com.sicredi.entrevista.assembleia.teste.enun.SituacaoMensagemFimSessao;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

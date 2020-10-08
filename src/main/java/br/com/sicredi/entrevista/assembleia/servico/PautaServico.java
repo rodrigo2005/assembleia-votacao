@@ -1,9 +1,9 @@
-package br.com.sicredi.entrevista.assembleia.servico;
+package br.com.sicredi.entrevista.assembleia.teste.servico;
 
-import br.com.sicredi.entrevista.assembleia.servico.conversor.PautaConverter;
-import br.com.sicredi.entrevista.assembleia.dominio.Pauta;
-import br.com.sicredi.entrevista.assembleia.servico.dto.PautaDTO;
-import br.com.sicredi.entrevista.assembleia.repositorio.PautaRepositorio;
+import br.com.sicredi.entrevista.assembleia.teste.servico.conversor.PautaConverter;
+import br.com.sicredi.entrevista.assembleia.teste.dominio.Pauta;
+import br.com.sicredi.entrevista.assembleia.teste.servico.dto.PautaDTO;
+import br.com.sicredi.entrevista.assembleia.teste.repositorio.PautaRepositorio;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

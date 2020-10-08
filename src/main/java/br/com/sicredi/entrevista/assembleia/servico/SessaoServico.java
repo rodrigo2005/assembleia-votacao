@@ -1,12 +1,11 @@
-package br.com.sicredi.entrevista.assembleia.servico;
+package br.com.sicredi.entrevista.assembleia.teste.servico;
 
-import br.com.sicredi.entrevista.assembleia.dominio.Sessao;
-import br.com.sicredi.entrevista.assembleia.enun.SituacaoMensagemFimSessao;
-import br.com.sicredi.entrevista.assembleia.excecao.NegocioException;
-import br.com.sicredi.entrevista.assembleia.excecao.ResourceNotFoundException;
-import br.com.sicredi.entrevista.assembleia.repositorio.SessaoRepositorio;
-import br.com.sicredi.entrevista.assembleia.servico.conversor.SessaoConverter;
-import br.com.sicredi.entrevista.assembleia.servico.dto.SessaoDTO;
+import br.com.sicredi.entrevista.assembleia.teste.dominio.Sessao;
+import br.com.sicredi.entrevista.assembleia.teste.enun.SituacaoMensagemFimSessao;
+import br.com.sicredi.entrevista.assembleia.teste.excecao.NegocioException;
+import br.com.sicredi.entrevista.assembleia.teste.repositorio.SessaoRepositorio;
+import br.com.sicredi.entrevista.assembleia.teste.servico.conversor.SessaoConverter;
+import br.com.sicredi.entrevista.assembleia.teste.servico.dto.SessaoDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

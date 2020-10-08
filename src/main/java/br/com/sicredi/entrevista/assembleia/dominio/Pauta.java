@@ -1,4 +1,4 @@
-package br.com.sicredi.entrevista.assembleia.dominio;
+package br.com.sicredi.entrevista.assembleia.teste.dominio;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

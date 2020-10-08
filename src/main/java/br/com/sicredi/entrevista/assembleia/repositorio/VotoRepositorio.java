@@ -1,7 +1,7 @@
-package br.com.sicredi.entrevista.assembleia.repositorio;
+package br.com.sicredi.entrevista.assembleia.teste.repositorio;
 
-import br.com.sicredi.entrevista.assembleia.dominio.Voto;
-import br.com.sicredi.entrevista.assembleia.servico.dto.ResultadoDTO;
+import br.com.sicredi.entrevista.assembleia.teste.dominio.Voto;
+import br.com.sicredi.entrevista.assembleia.teste.servico.dto.ResultadoDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

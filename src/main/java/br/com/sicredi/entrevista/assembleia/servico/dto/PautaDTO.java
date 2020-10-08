@@ -1,4 +1,4 @@
-package br.com.sicredi.entrevista.assembleia.servico.dto;
+package br.com.sicredi.entrevista.assembleia.teste.servico.dto;
 
 import lombok.Builder;
 import lombok.Data;

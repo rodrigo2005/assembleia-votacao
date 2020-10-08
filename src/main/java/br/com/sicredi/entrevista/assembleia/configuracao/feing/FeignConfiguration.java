@@ -1,6 +1,6 @@
-package br.com.sicredi.entrevista.assembleia.configuracao.feing;
+package br.com.sicredi.entrevista.assembleia.teste.configuracao.feing;
 
-import br.com.sicredi.entrevista.assembleia.client.CPFClient;
+import br.com.sicredi.entrevista.assembleia.teste.client.CPFClient;
 import feign.Feign;
 import feign.httpclient.ApacheHttpClient;
 import feign.jackson.JacksonDecoder;

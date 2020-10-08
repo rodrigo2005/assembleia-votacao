@@ -1,4 +1,4 @@
-package br.com.sicredi.entrevista.assembleia.configuracao.feing;
+package br.com.sicredi.entrevista.assembleia.teste.configuracao.feing;
 
 import lombok.Getter;
 import lombok.Setter;

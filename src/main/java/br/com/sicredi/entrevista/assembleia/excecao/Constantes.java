@@ -1,4 +1,4 @@
-package br.com.sicredi.entrevista.assembleia.excecao;
+package br.com.sicredi.entrevista.assembleia.teste.excecao;
 
 public class Constantes {
 

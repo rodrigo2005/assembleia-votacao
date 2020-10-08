@@ -1,4 +1,4 @@
-package br.com.sicredi.entrevista.assembleia.servico.conversor;
+package br.com.sicredi.entrevista.assembleia.teste.servico.conversor;
 
 import java.util.List;
 import java.util.stream.Collectors;

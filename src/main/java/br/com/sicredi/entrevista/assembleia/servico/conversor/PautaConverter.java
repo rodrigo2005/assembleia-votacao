@@ -1,7 +1,7 @@
-package br.com.sicredi.entrevista.assembleia.servico.conversor;
+package br.com.sicredi.entrevista.assembleia.teste.servico.conversor;
 
-import br.com.sicredi.entrevista.assembleia.dominio.Pauta;
-import br.com.sicredi.entrevista.assembleia.servico.dto.PautaDTO;
+import br.com.sicredi.entrevista.assembleia.teste.dominio.Pauta;
+import br.com.sicredi.entrevista.assembleia.teste.servico.dto.PautaDTO;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,4 +1,4 @@
-package br.com.sicredi.entrevista.assembleia.configuracao.kafka;
+package br.com.sicredi.entrevista.assembleia.teste.configuracao.kafka;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

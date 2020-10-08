@@ -1,4 +1,4 @@
-package br.com.sicredi.entrevista.assembleia.configuracao.swagger;
+package br.com.sicredi.entrevista.assembleia.teste.configuracao.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,8 +1,8 @@
-package br.com.sicredi.entrevista.assembleia.servico.conversor;
+package br.com.sicredi.entrevista.assembleia.teste.servico.conversor;
 
-import br.com.sicredi.entrevista.assembleia.dominio.Pauta;
-import br.com.sicredi.entrevista.assembleia.dominio.Sessao;
-import br.com.sicredi.entrevista.assembleia.servico.dto.SessaoDTO;
+import br.com.sicredi.entrevista.assembleia.teste.dominio.Pauta;
+import br.com.sicredi.entrevista.assembleia.teste.dominio.Sessao;
+import br.com.sicredi.entrevista.assembleia.teste.servico.dto.SessaoDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

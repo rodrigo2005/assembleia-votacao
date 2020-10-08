@@ -1,7 +1,7 @@
-package br.com.sicredi.entrevista.assembleia.menssageria;
+package br.com.sicredi.entrevista.assembleia.teste.menssageria;
 
-import br.com.sicredi.entrevista.assembleia.configuracao.kafka.Mensagem;
-import br.com.sicredi.entrevista.assembleia.servico.SessaoServico;
+import br.com.sicredi.entrevista.assembleia.teste.configuracao.kafka.Mensagem;
+import br.com.sicredi.entrevista.assembleia.teste.servico.SessaoServico;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

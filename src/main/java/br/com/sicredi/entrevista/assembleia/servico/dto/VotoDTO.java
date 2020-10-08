@@ -1,6 +1,6 @@
-package br.com.sicredi.entrevista.assembleia.servico.dto;
+package br.com.sicredi.entrevista.assembleia.teste.servico.dto;
 
-import br.com.sicredi.entrevista.assembleia.enun.OpcaoVoto;
+import br.com.sicredi.entrevista.assembleia.teste.enun.OpcaoVoto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;

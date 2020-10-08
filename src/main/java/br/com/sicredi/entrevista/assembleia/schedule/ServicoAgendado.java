@@ -1,9 +1,9 @@
-package br.com.sicredi.entrevista.assembleia.schedule;
+package br.com.sicredi.entrevista.assembleia.teste.schedule;
 
-import br.com.sicredi.entrevista.assembleia.configuracao.kafka.Mensagem;
-import br.com.sicredi.entrevista.assembleia.menssageria.MensagemProducerService;
-import br.com.sicredi.entrevista.assembleia.servico.SessaoServico;
-import br.com.sicredi.entrevista.assembleia.servico.dto.SessaoDTO;
+import br.com.sicredi.entrevista.assembleia.teste.configuracao.kafka.Mensagem;
+import br.com.sicredi.entrevista.assembleia.teste.menssageria.MensagemProducerService;
+import br.com.sicredi.entrevista.assembleia.teste.servico.SessaoServico;
+import br.com.sicredi.entrevista.assembleia.teste.servico.dto.SessaoDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

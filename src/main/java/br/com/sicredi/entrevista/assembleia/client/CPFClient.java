@@ -1,4 +1,4 @@
-package br.com.sicredi.entrevista.assembleia.client;
+package br.com.sicredi.entrevista.assembleia.teste.client;
 
 import feign.Param;
 import feign.RequestLine;

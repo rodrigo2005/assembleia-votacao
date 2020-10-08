@@ -1,4 +1,4 @@
-package br.com.sicredi.entrevista.assembleia.configuracao.kafka;
+package br.com.sicredi.entrevista.assembleia.teste.configuracao.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.LongDeserializer;

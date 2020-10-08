@@ -1,4 +1,4 @@
-package br.com.sicredi.entrevista.assembleia.excecao;
+package br.com.sicredi.entrevista.assembleia.teste.excecao;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
