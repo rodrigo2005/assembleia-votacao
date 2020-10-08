@@ -38,6 +38,9 @@ services:
   app:
     build:
       context: ./
+      dockerfile: Dockerfile
+    image: rodrigo2005/assembleia-votacao:latest
+    container_name: assembleia-votacao
     ports:
       - "8081:8081"
     networks:
