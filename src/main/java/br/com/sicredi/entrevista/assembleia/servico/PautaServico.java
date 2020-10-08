@@ -28,12 +28,13 @@ public class PautaServico {
     }
 
     public PautaDTO buscarPautaPorId(Long id){
-        return pautaConverter.toDto(pautaRepositorio.findById(id).get());
+        return pautaConverter.toDto(pautaRepositorio.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Não existe pauta com o ID informado.")));
     }
 
     public void existePauta(Long pautaId){
         if(!pautaRepositorio.existsById(pautaId)){
-            throw new IllegalArgumentException("Não foi encontrado pauta com o ID informado.");
+            throw new IllegalArgumentException("Não existe pauta com o ID informado.");
         }
     }
 }

@@ -1,7 +1,7 @@
 out 05, 2020 12:46:32 AM com.redhat.quarkus.ls.QuarkusLanguageServer initialize
-INFORMAÇÕES: Initializing Quarkus server 0.0.4-20191120-1547 with C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\jbr
+INFORMAï¿½ï¿½ES: Initializing Quarkus server 0.0.4-20191120-1547 with C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\jbr
 out 05, 2020 12:51:49 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint logIssues
-ADVERTÊNCIA: Issue found in NotificationMessage: Message could not be parsed.
+ADVERTï¿½NCIA: Issue found in NotificationMessage: Message could not be parsed.
 com.google.gson.stream.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 1 column 496 path $
 	at com.google.gson.stream.JsonReader.syntaxError(JsonReader.java:1568)
 	at com.google.gson.stream.JsonReader.checkLenient(JsonReader.java:1409)
@@ -5674,9 +5674,9 @@ java.lang.IllegalStateException: Missing header Content-Length in input "{"jsonr
 	at java.base/java.lang.Thread.run(Thread.java:834)
 
 out 05, 2020 1:34:10 AM com.redhat.quarkus.ls.QuarkusLanguageServer initialize
-INFORMAÇÕES: Initializing Quarkus server 0.0.4-20191120-1547 with C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\jbr
+INFORMAï¿½ï¿½ES: Initializing Quarkus server 0.0.4-20191120-1547 with C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\jbr
 out 05, 2020 1:40:16 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint logIssues
-ADVERTÊNCIA: Issue found in NotificationMessage: Message could not be parsed.
+ADVERTï¿½NCIA: Issue found in NotificationMessage: Message could not be parsed.
 com.google.gson.stream.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 1 column 359 path $
 	at com.google.gson.stream.JsonReader.syntaxError(JsonReader.java:1568)
 	at com.google.gson.stream.JsonReader.checkLenient(JsonReader.java:1409)
@@ -8319,9 +8319,9 @@ java.lang.IllegalStateException: Missing header Content-Length in input "{"jsonr
 	at java.base/java.lang.Thread.run(Thread.java:834)
 
 out 05, 2020 7:37:57 PM com.redhat.quarkus.ls.QuarkusLanguageServer initialize
-INFORMAÇÕES: Initializing Quarkus server 0.0.4-20191120-1547 with C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\jbr
+INFORMAï¿½ï¿½ES: Initializing Quarkus server 0.0.4-20191120-1547 with C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\jbr
 out 05, 2020 7:45:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint logIssues
-ADVERTÊNCIA: Issue found in NotificationMessage: Message could not be parsed.
+ADVERTï¿½NCIA: Issue found in NotificationMessage: Message could not be parsed.
 com.google.gson.stream.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 1 column 324 path $
 	at com.google.gson.stream.JsonReader.syntaxError(JsonReader.java:1568)
 	at com.google.gson.stream.JsonReader.checkLenient(JsonReader.java:1409)
@@ -13049,4 +13049,4 @@ java.lang.IllegalStateException: Missing header Content-Length in input "{"jsonr
 	at java.base/java.lang.Thread.run(Thread.java:834)
 
 out 05, 2020 10:39:01 PM com.redhat.quarkus.ls.QuarkusLanguageServer initialize
-INFORMAÇÕES: Initializing Quarkus server 0.0.4-20191120-1547 with C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\jbr
+INFORMAï¿½ï¿½ES: Initializing Quarkus server 0.0.4-20191120-1547 with C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\jbr

@@ -19,6 +19,7 @@
 		<feign.version>10.7.4</feign.version>
 		<junit-platform.version>1.2.0</junit-platform.version>
 		<junit-jupiter.version>5.4.2</junit-jupiter.version>
+		<jmeter.version>2.6.0</jmeter.version>
 	</properties>
 
 	<dependencies>
@@ -110,6 +111,33 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+<!--				<configuration>-->
+<!--					<includes>-->
+<!--						<include>Sample.java</include>-->
+<!--					</includes>-->
+<!--				</configuration>-->
+			</plugin>
+			<plugin>
+				<groupId>com.lazerycode.jmeter</groupId>
+				<artifactId>jmeter-maven-plugin</artifactId>
+				<version>${jmeter.version}</version>
+				<executions>
+					<execution>
+						<id>jmeter-tests</id>
+						<goals>
+							<goal>jmeter</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<testFilesDirectory>${project.basedir}/src/main/resources</testFilesDirectory>
+					<resultsDirectory>${project.basedir}/src/main/resources</resultsDirectory>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

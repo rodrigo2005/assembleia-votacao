@@ -2,14 +2,20 @@ package br.com.sicredi.entrevista.assembleia.servico;
 
 import br.com.sicredi.entrevista.assembleia.client.CPFClient;
 import br.com.sicredi.entrevista.assembleia.dominio.Voto;
+import br.com.sicredi.entrevista.assembleia.enun.OpcaoVoto;
 import br.com.sicredi.entrevista.assembleia.excecao.NegocioException;
 import br.com.sicredi.entrevista.assembleia.excecao.ResourceNotFoundException;
 import br.com.sicredi.entrevista.assembleia.repositorio.VotoRepositorio;
 import br.com.sicredi.entrevista.assembleia.servico.conversor.VotoConverter;
+import br.com.sicredi.entrevista.assembleia.servico.dto.ResultadoDTO;
 import br.com.sicredi.entrevista.assembleia.servico.dto.VotoDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 @AllArgsConstructor
@@ -31,6 +37,15 @@ public class VotoServico {
         votoRepositorio.save(voto);
         return votoConverter.toDto(voto,votoDTO.getPautaId());
     }
+
+    public List<ResultadoDTO> buscarVotosDePauta(Long pautaId){
+        List<ResultadoDTO> resultado = votoRepositorio.buscarVotosDePauta(pautaId);
+
+
+        return resultado;
+
+    }
+
 
     private void associadoPossuiCpfValido(VotoDTO votoDTO)  {
         if(!cpfClient.validarCpf(votoDTO.getCpf()).isValido()){

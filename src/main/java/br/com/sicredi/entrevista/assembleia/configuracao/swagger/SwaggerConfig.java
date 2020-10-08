@@ -1,6 +1,5 @@
 package br.com.sicredi.entrevista.assembleia.configuracao.swagger;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.annotations.ApiIgnore;
@@ -17,15 +16,12 @@ import java.util.Set;
 @Configuration
 public class SwaggerConfig {
 
-    @Value("${config.swagger.path}")
-    private String swaggerpath;
-
     @Bean
     public Docket productApi() {
         Set<String> protolocos = new HashSet<>();
         protolocos.add("http");
 
-        return new Docket(DocumentationType.SWAGGER_2).host(swaggerpath)
+        return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("All")
                 .select()
                 .paths(PathSelectors.any())

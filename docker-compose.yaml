@@ -20,13 +20,14 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
   db:
     image: mysql
     container_name: mysql-container
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
-      MYSQL_DATABASE: votacao
+      MYSQL_DATABASE: assembleia
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./api/bd/data:/var/lib/mysql
@@ -34,20 +35,19 @@ services:
       - 3306:3306
     networks:
       - app-network
-  app:
+  api:
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile
-    image: rodrigo2005/assembleia-votacao:latest
-    container_name: assembleia-votacao
+    image: api:latest
+    container_name: api
     ports:
       - "8081:8081"
     networks:
       - app-network
     depends_on:
-      - db
-      - zookeeper
       - kafka 
+      - db
 
 networks: 
   app-network:
