@@ -17,8 +17,9 @@ import java.util.Set;
 @Configuration
 public class SwaggerConfig {
 
-    @Value("${config.swagger.path}")
-    private String swaggerpath;
+
+   // @Value("${config.swagger.path}")
+   // private String swaggerpath;
 
     @Bean
     public Docket productApi() {
@@ -26,7 +27,7 @@ public class SwaggerConfig {
         protolocos.add("http");
         protolocos.add("https");
 
-        return new Docket(DocumentationType.SWAGGER_2).host(swaggerpath)
+        return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("All")
                 .select()
                 .paths(PathSelectors.any())
