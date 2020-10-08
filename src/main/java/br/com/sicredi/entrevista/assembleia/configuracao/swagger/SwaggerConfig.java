@@ -24,7 +24,6 @@ public class SwaggerConfig {
     public Docket productApi() {
         Set<String> protolocos = new HashSet<>();
         protolocos.add("http");
-        protolocos.add("https");
 
         return new Docket(DocumentationType.SWAGGER_2).host(swaggerpath)
                 .groupName("All")
