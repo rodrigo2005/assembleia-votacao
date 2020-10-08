@@ -1,6 +1,6 @@
 package br.com.sicredi.entrevista.assembleia.api.v1;
 
-import br.com.sicredi.entrevista.assembleia.api.v1.request.SessaoRequest;
+import br.com.sicredi.entrevista.assembleia.api.v1.request.SessaoRequestTest;
 import br.com.sicredi.entrevista.assembleia.enun.SituacaoMensagemFimSessao;
 import br.com.sicredi.entrevista.assembleia.servico.dto.SessaoDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,7 +42,7 @@ public class TestSessaoController {
         LocalDateTime dataHoraInicio = LocalDateTime.now();
         LocalDateTime dataHoraFim = dataHoraInicio.plusMinutes(duracaoMinutos);
 
-        SessaoRequest sessaoRequest = SessaoRequest.builder().pautaId(1L).duracaoMinutos(duracaoMinutos).dataHoraInicio(dataHoraInicio).build();
+        SessaoRequestTest sessaoRequest = SessaoRequestTest.builder().pautaId(1L).duracaoMinutos(duracaoMinutos).dataHoraInicio(dataHoraInicio).build();
         SessaoDTO sessaoDTO = SessaoDTO.builder().id(1L)
                 .inicioVotacao(dataHoraInicio)
                 .fimVotacao(dataHoraFim)
@@ -71,7 +71,7 @@ public class TestSessaoController {
         LocalDateTime dataHoraInicio = LocalDateTime.now();
         LocalDateTime dataHoraFim = dataHoraInicio.plusMinutes(duracaoMinutos);
 
-        SessaoRequest sessaoRequest = SessaoRequest.builder().pautaId(1L).duracaoMinutos(duracaoMinutos).dataHoraInicio(dataHoraInicio).build();
+        SessaoRequestTest sessaoRequest = SessaoRequestTest.builder().pautaId(1L).duracaoMinutos(duracaoMinutos).dataHoraInicio(dataHoraInicio).build();
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());

@@ -1,6 +1,6 @@
 package br.com.sicredi.entrevista.assembleia.api.v1;
 
-import br.com.sicredi.entrevista.assembleia.api.v1.request.VotoRequest;
+import br.com.sicredi.entrevista.assembleia.api.v1.request.VotoRequestTest;
 import br.com.sicredi.entrevista.assembleia.enun.OpcaoVoto;
 import br.com.sicredi.entrevista.assembleia.servico.dto.VotoDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,7 +38,7 @@ public class TestVotoController {
     @Test
     public void criarComSucesso() throws Exception {
         String url = "/v1/voto/votar";
-        VotoRequest votoRequest = VotoRequest.builder().cpf("14412497100").opcao(OpcaoVoto.SIM).sessaoId(1L).build();
+        VotoRequestTest votoRequest = VotoRequestTest.builder().cpf("14412497100").opcao(OpcaoVoto.SIM).sessaoId(1L).build();
         VotoDTO votoDTO = VotoDTO.builder()
                 .cpf("14412497100")
                 .opcao(OpcaoVoto.SIM)
@@ -63,7 +63,7 @@ public class TestVotoController {
     @Test()
     public void criarSegundoVotoMesmoAssociado() throws Exception {
         String url = "/v1/voto/votar";
-        VotoRequest votoRequest = VotoRequest.builder().cpf("14412497100").opcao(OpcaoVoto.NAO).sessaoId(1L).build();
+        VotoRequestTest votoRequest = VotoRequestTest.builder().cpf("14412497100").opcao(OpcaoVoto.NAO).sessaoId(1L).build();
         VotoDTO votoDTO = VotoDTO.builder()
                 .cpf("14412497100")
                 .opcao(OpcaoVoto.NAO)
