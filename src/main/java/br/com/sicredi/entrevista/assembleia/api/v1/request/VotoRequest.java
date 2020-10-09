@@ -6,7 +6,6 @@ import lombok.Data;
 import org.hibernate.validator.constraints.br.CPF;
 import javax.validation.constraints.NotNull;
 
-@Data
 @Builder
 public class VotoRequest {
 
@@ -18,4 +17,28 @@ public class VotoRequest {
 
     @NotNull(message = "Deve ser informado uma opçao de voto, as opções são SIM ou NAO.")
     private OpcaoVoto opcao;
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Long getSessaoId() {
+        return sessaoId;
+    }
+
+    public void setSessaoId(Long sessaoId) {
+        this.sessaoId = sessaoId;
+    }
+
+    public OpcaoVoto getOpcao() {
+        return opcao;
+    }
+
+    public void setOpcao(OpcaoVoto opcao) {
+        this.opcao = opcao;
+    }
 }

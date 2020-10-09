@@ -8,7 +8,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-@Data
 @Builder
 public class SessaoRequest {
 
@@ -23,4 +22,27 @@ public class SessaoRequest {
     private Long pautaId;
 
 
+    public LocalDateTime getDataHoraInicio() {
+        return dataHoraInicio;
+    }
+
+    public void setDataHoraInicio(LocalDateTime dataHoraInicio) {
+        this.dataHoraInicio = dataHoraInicio;
+    }
+
+    public Integer getDuracaoMinutos() {
+        return duracaoMinutos;
+    }
+
+    public void setDuracaoMinutos(Integer duracaoMinutos) {
+        this.duracaoMinutos = duracaoMinutos;
+    }
+
+    public Long getPautaId() {
+        return pautaId;
+    }
+
+    public void setPautaId(Long pautaId) {
+        this.pautaId = pautaId;
+    }
 }
